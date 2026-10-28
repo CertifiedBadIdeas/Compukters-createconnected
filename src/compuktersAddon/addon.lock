@@ -1,0 +1,5 @@
+lock 2
+record connected.battery.KineticBatteryState connected.battery.KineticBatteryState{gameTick:I64,charge:F64,capacity:F64,discharging:BOOL,speedRpm:F32,generatedSpeedRpm:F32,consumedStress:F32,controlled:BOOL}
+operation connected connected 1 0 active connected.battery.BatteryBindings.batteryClose fun(Int):Unit
+operation connected connected 1 1 active connected.battery.BatteryBindings.batteryState fun(Int):KineticBatteryState
+operation connected connected 1 2 active connected.battery.BatteryBindings.setDischarging fun(Int,Boolean):Unit

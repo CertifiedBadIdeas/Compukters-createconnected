@@ -1,0 +1,9 @@
+.gradle/
+.gradle-sandbox/
+.toolchain/
+build/
+run/
+.agents/tmp/
+workspace.properties
+.gradle-agent/
+__pycache__/
