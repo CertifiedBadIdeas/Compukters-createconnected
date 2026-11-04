@@ -12,7 +12,9 @@ The engine's native limits, actual network demand and finite charge remain autho
 
 Mode control overrides redstone only for the exact program-owned peripheral lease. `close()`, program exit,
 network loss and reset restore ordinary native redstone without erasing charge. No charge setter is exported.
-Saved control sessions are unsupported and cold boot retains only the native battery's own persisted charge.
+An unused host, or one whose battery handles have all been closed, supports an empty checkpoint so installing
+Connected does not interrupt unrelated running programs during unload or ship transfer. Active battery
+sessions remain unsupported: capture rejects them and cold boot retains the native battery's persisted charge.
 
 Build with `./gradlew-sandbox-dev-parallel-summary check`
 and an absolute `-PcompuktersWorkspace` pointing at the prepared Compukters task checkout. Prepare its SDK first with

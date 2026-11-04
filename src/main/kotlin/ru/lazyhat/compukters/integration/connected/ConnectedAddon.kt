@@ -120,6 +120,16 @@ internal class BatteryHost(
             Unit
         }
 
+    override fun checkpoint(): ByteArray {
+        check(endpoints.isEmpty()) { "Active Connected battery resources do not support hibernation" }
+        return byteArrayOf()
+    }
+
+    override fun restoreCheckpoint(state: ByteArray) {
+        require(state.isEmpty()) { "Connected battery resources do not support restoration" }
+        reset()
+    }
+
     override fun reset() {
         endpoints.forEach { it.release() }
         endpoints.clear()
