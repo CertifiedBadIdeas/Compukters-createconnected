@@ -19,3 +19,13 @@ sessions remain unsupported: capture rejects them and cold boot retains the nati
 Build with `./gradlew-sandbox-dev-parallel-summary check`
 and an absolute `-PcompuktersWorkspace` pointing at the prepared Compukters task checkout. Prepare its SDK first with
 `stageAddonDevelopmentDependencies`. The addon also supports the published SDK selection settings.
+
+## Declarative Guest contracts
+
+Guest API declarations live in `src/compuktersAddon/contracts`. The SDK generates the actual Guest Kotlin under
+`build/generated/sources/compuktersGuest/kotlin` and packages those sources with the executable `.cagb` image.
+Run `generateCompuktersGuestSources` to inspect the result. Check in `src/compuktersAddon/addon.lock` as ABI history;
+only `updateCompuktersAddonAbiLock` changes selectors/tombstones after an intentional contract edit.
+Unit-returning `@GuestCommand` methods get ordinary calls and batch command factories from the same declaration.
+The generated host validates declared parameter constraints and derives command eligibility.
+See the [SDK authoring guide](https://github.com/CertifiedBadIdeas/Compukters/blob/dev/docs/developers/addon-development.md).
