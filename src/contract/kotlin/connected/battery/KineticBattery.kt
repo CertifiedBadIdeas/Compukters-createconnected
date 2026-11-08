@@ -9,7 +9,7 @@ import ru.lazyhat.compukters.api.contracts.GuestRecord
 
 /** Native charge is measured in stress-unit ticks (one su-hour is 72000 units). */
 @GuestRecord
-data class KineticBatteryState(
+value class KineticBatteryState(
     val gameTick: Long,
     val charge: Double,
     val capacity: Double,
